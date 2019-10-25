@@ -1,0 +1,4 @@
+Daire|100
+Bahceli|200
+Dubleks|150
+Mustakil|300
