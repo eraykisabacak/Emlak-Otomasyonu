@@ -9,7 +9,7 @@ namespace ClassLibrary
 {
     public class Ev
     {
-        int OdaSayisi {
+        public int OdaSayisi {
             get
             {
                 return OdaSayisi;
@@ -26,9 +26,9 @@ namespace ClassLibrary
                 }
             }
         }
-        int KatNumarasi { get; set; }
-        string Semt { get; set; }
-        static DateTime YapimTarihi {
+        public int KatNumarasi { get; set; }
+        public string Semt { get; set; }
+        public static DateTime YapimTarihi {
             get
             {
                 return YapimTarihi;
@@ -64,7 +64,7 @@ namespace ClassLibrary
                 }
             }
         }
-        decimal Alan {
+        public decimal Alan {
             get
             {
                 return Alan;
@@ -82,11 +82,22 @@ namespace ClassLibrary
             }
         }
 
-        private int Yas = DateTime.Now.Day - YapimTarihi.Day;
+        public int Yas
+        {
+            get
+            {
+                return Yas;
 
-        int turuSayi = 0;
+            }
+            set
+            {
+                Yas = DateTime.Now.Day - YapimTarihi.Day;
+            }
+        }
 
-        private enum Turu
+        public int turuSayi = 0;
+
+        public enum Turu
         {
             Daire, Bahceli, Dubleks, Mustakil
         }
@@ -106,9 +117,10 @@ namespace ClassLibrary
             this.Alan = Alan;
         }
 
-        public string EvBilgileri()
+        virtual public string EvBilgileri()
         {
-            return string.Format("Oda Sayısı : {0} Kat Numarası : {1} Semt : {2} Alan : {3} Turu : {4} Yaşı: {5}", OdaSayisi, KatNumarasi, Alan, (Turu)turuSayi, Yas);
+            return string.Format("Oda Sayısı : {0} Kat Numarası : {1} Semt : {2} Alan : {3} Turu : {4} Yaşı: {5}",
+                OdaSayisi, KatNumarasi, Alan, (Turu)turuSayi, Yas);
         }
 
         public int FiyatHesapla()
@@ -133,7 +145,6 @@ namespace ClassLibrary
             sw.Close();
             fs.Close();
             return katSayi * OdaSayisi;
-
         }
     }
 
@@ -143,12 +154,30 @@ namespace ClassLibrary
         
         public KiralikEv(int OdaSayisi = 0, int KatNumarasi = 0, string Semt = "Selçuk Üniversitesi", decimal Alan = 10,decimal Kira = 800, decimal Depozito = 100): base(OdaSayisi,KatNumarasi ,Semt, Alan)
         {
+            this.Kira = Kira;
+            this.Depozito = Depozito;
+        }
 
+        public override string EvBilgileri()
+        {
+            return string.Format("Oda Sayısı : {0} Kat Numarası : {1} Semt : {2} Alan : {3} Turu : {4} Yaşı: {5} Kira : {6} Depozito : {7}", 
+                OdaSayisi, KatNumarasi, Alan, (Turu)turuSayi, Yas, Kira, Depozito);
         }
     }
 
     public class SatilikEv : Ev
     {
         decimal Fiyat;
+
+        public SatilikEv(int OdaSayisi = 0, int KatNumarasi = 0, string Semt = "Selçuk Üniversitesi", decimal Alan = 10, decimal Fiyat = 800) : base(OdaSayisi, KatNumarasi, Semt, Alan)
+        {
+            this.Fiyat = Fiyat;
+        }
+
+        public override string EvBilgileri()
+        {
+            return string.Format("Oda Sayısı : {0} Kat Numarası : {1} Semt : {2} Alan : {3} Turu : {4} Yaşı: {5} Fiyat : {6}",
+                OdaSayisi, KatNumarasi, Alan, (Turu)turuSayi, Yas, Fiyat);
+        }
     }
 }
