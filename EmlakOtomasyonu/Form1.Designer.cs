@@ -40,15 +40,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtKatNumarasi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtYapim = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbEvTur = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGonder = new System.Windows.Forms.Button();
             this.txtKira = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtFiyat = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtDepozito = new System.Windows.Forms.TextBox();
+            this.yapim = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -253,13 +254,6 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Kat Numarası :";
             // 
-            // txtYapim
-            // 
-            this.txtYapim.Location = new System.Drawing.Point(198, 322);
-            this.txtYapim.Name = "txtYapim";
-            this.txtYapim.Size = new System.Drawing.Size(181, 31);
-            this.txtYapim.TabIndex = 13;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -293,19 +287,20 @@
             this.cbEvTur.Size = new System.Drawing.Size(181, 33);
             this.cbEvTur.TabIndex = 15;
             // 
-            // button1
+            // btnGonder
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(233, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 35);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Kaydet";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGonder.AutoSize = true;
+            this.btnGonder.Location = new System.Drawing.Point(233, 425);
+            this.btnGonder.Name = "btnGonder";
+            this.btnGonder.Size = new System.Drawing.Size(101, 35);
+            this.btnGonder.TabIndex = 16;
+            this.btnGonder.Text = "Kaydet";
+            this.btnGonder.UseVisualStyleBackColor = true;
+            this.btnGonder.Click += new System.EventHandler(this.btnGonder_Click);
             // 
             // txtKira
             // 
-            this.txtKira.Location = new System.Drawing.Point(504, 222);
+            this.txtKira.Location = new System.Drawing.Point(514, 222);
             this.txtKira.Name = "txtKira";
             this.txtKira.Size = new System.Drawing.Size(184, 31);
             this.txtKira.TabIndex = 20;
@@ -314,7 +309,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(395, 225);
+            this.label8.Location = new System.Drawing.Point(389, 225);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 25);
             this.label8.TabIndex = 19;
@@ -323,7 +318,7 @@
             // 
             // txtFiyat
             // 
-            this.txtFiyat.Location = new System.Drawing.Point(504, 171);
+            this.txtFiyat.Location = new System.Drawing.Point(514, 171);
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.Size = new System.Drawing.Size(184, 31);
             this.txtFiyat.TabIndex = 18;
@@ -332,26 +327,42 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(397, 174);
+            this.label9.Location = new System.Drawing.Point(391, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 25);
             this.label9.TabIndex = 17;
             this.label9.Text = "Fiyatı :";
             this.label9.Visible = false;
             // 
+            // txtDepozito
+            // 
+            this.txtDepozito.Location = new System.Drawing.Point(514, 171);
+            this.txtDepozito.Name = "txtDepozito";
+            this.txtDepozito.Size = new System.Drawing.Size(184, 31);
+            this.txtDepozito.TabIndex = 21;
+            this.txtDepozito.Visible = false;
+            // 
+            // yapim
+            // 
+            this.yapim.Location = new System.Drawing.Point(198, 325);
+            this.yapim.Name = "yapim";
+            this.yapim.Size = new System.Drawing.Size(181, 31);
+            this.yapim.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 477);
+            this.Controls.Add(this.yapim);
+            this.Controls.Add(this.txtDepozito);
             this.Controls.Add(this.txtKira);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtFiyat);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGonder);
             this.Controls.Add(this.cbEvTur);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtYapim);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtKatNumarasi);
             this.Controls.Add(this.label5);
@@ -369,6 +380,7 @@
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "Form1";
             this.Text = "Yeni Kayıt Ekleme";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,26 +389,27 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cb_İl;
-        private System.Windows.Forms.ComboBox cbSemt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rbSatilik;
-        private System.Windows.Forms.RadioButton rbKiralik;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAlan;
-        private System.Windows.Forms.TextBox txtOdaSayisi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtKatNumarasi;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtYapim;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbEvTur;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtKira;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtFiyat;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnGonder;
+        public System.Windows.Forms.ComboBox cb_İl;
+        public System.Windows.Forms.RadioButton rbSatilik;
+        public System.Windows.Forms.RadioButton rbKiralik;
+        public System.Windows.Forms.TextBox txtKira;
+        public System.Windows.Forms.TextBox txtFiyat;
+        public System.Windows.Forms.TextBox txtDepozito;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.ComboBox cbSemt;
+        public System.Windows.Forms.TextBox txtAlan;
+        public System.Windows.Forms.TextBox txtOdaSayisi;
+        public System.Windows.Forms.TextBox txtKatNumarasi;
+        public System.Windows.Forms.ComboBox cbEvTur;
+        private System.Windows.Forms.DateTimePicker yapim;
     }
 }
 

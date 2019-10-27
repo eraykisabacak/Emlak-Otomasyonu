@@ -42,6 +42,7 @@ namespace EmlakOtomasyonu
                 }
                 yazi = sr.ReadLine();
             }
+            fs.Flush();
             sr.Close();
             fs.Close();
             return semtler;
