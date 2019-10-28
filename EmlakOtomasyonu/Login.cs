@@ -37,8 +37,8 @@ namespace EmlakOtomasyonu
                     if(kullanici.KullaniciAdi.Equals(kullaniciAdi) && kullanici.Sifre.Equals(sifre))
                     {
                         MessageBox.Show("Giriş Başarılı");
-                        Form1 form1 = new Form1();
-                        form1.Visible = true;
+                        SecenekEkrani secenekEkrani = new SecenekEkrani();
+                        secenekEkrani.Visible = true;
                         this.Visible = false;
                     }
                     else

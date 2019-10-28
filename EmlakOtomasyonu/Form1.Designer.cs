@@ -345,6 +345,7 @@
             // yapim
             // 
             this.yapim.Location = new System.Drawing.Point(198, 325);
+            this.yapim.MaxDate = new System.DateTime(2019, 10, 29, 0, 0, 0, 0);
             this.yapim.Name = "yapim";
             this.yapim.Size = new System.Drawing.Size(181, 31);
             this.yapim.TabIndex = 22;

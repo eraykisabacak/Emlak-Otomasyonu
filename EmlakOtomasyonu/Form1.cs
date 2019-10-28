@@ -58,28 +58,23 @@ namespace EmlakOtomasyonu
                 if (rbSatilik.Checked)
                 {
                     SatilikEv satilikEv = new SatilikEv(
-                        int.Parse(txtOdaSayisi.Text), int.Parse(txtKatNumarasi.Text),
-                    cbSemt.Text, int.Parse(txtAlan.Text), DateTime.Parse(yapim.Text), int.Parse(txtFiyat.Text));
+                        int.Parse(txtOdaSayisi.Text), int.Parse(txtKatNumarasi.Text), cb_İl.Text,
+                    cbSemt.Text, int.Parse(txtAlan.Text),cbEvTur.Items.IndexOf(cbEvTur.SelectedItem),"satilik",true, DateTime.Parse(yapim.Text), int.Parse(txtFiyat.Text));
                     Ev.evler.Add(satilikEv);
-                    MessageBox.Show("Satılık ev eklendi");
                     string dosya_yolu = "../../satilik.txt";
-                    FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fs);
-
-                    foreach(Ev ev in Ev.evler)
-                    {
-                        sw.WriteLine(ev.EmlakNumarasi + "|"+ev.OdaSayisi + "|" + ev.KatNumarasi + "|" + ev.Semt + "|" + ev.Alan + "|" + ev.turuSayi + "|" + ev.Yas + "|" + ev.YapimTarihi);
-                    }
-                    sw.Close();
-                    fs.Close();
+                    DosyaIslemleri.DosyaSatilikYazmak(dosya_yolu,"satilik");
+                    MessageBox.Show("Satılık ev eklendi");
+                    this.Close();
                 }
                 else
                 {
-                    Console.WriteLine("*");
-                    KiralikEv kiralikEv = new KiralikEv(int.Parse(txtOdaSayisi.Text), int.Parse(txtKatNumarasi.Text),
-                        cbSemt.Text, int.Parse(txtAlan.Text), DateTime.Parse(yapim.Text), decimal.Parse(txtKira.Text), decimal.Parse(txtDepozito.Text));
+                    KiralikEv kiralikEv = new KiralikEv(int.Parse(txtOdaSayisi.Text), int.Parse(txtKatNumarasi.Text),cb_İl.Text,
+                        cbSemt.Text, int.Parse(txtAlan.Text), cbEvTur.Items.IndexOf(cbEvTur.SelectedItem),"kiralik",true, DateTime.Parse(yapim.Text), decimal.Parse(txtKira.Text), decimal.Parse(txtDepozito.Text));
                     Ev.evler.Add(kiralikEv);
+                    string dosya_yolu = "../../kiralik.txt";
+                    DosyaIslemleri.DosyaKiralikEvYazmak(dosya_yolu, "kiralik");
                     MessageBox.Show("Kiralık ev eklendi");
+                    this.Close();
                 }
             }
             else
@@ -92,15 +87,7 @@ namespace EmlakOtomasyonu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*string dosya_yolu = "../../satilik.txt";
-            FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("windows-1254"));
-            string yazi = sr.ReadLine();
-
-            while(yazi != null)
-            {
-                Console.WriteLine()
-            }*/
+            
         }
     }
 }
