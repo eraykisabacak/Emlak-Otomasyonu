@@ -99,5 +99,117 @@ namespace EmlakOtomasyonu
         {
             
         }
+
+        private void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            // Düzenle tuşu basıldığında eğer datagridviewdan bir şey seçili değilse hata veriyor
+            /*if(dataGridView1.Click )
+            {
+                MessageBox.Show("Boş");
+                return;
+            }*/
+            string deger = dataGridView1.CurrentRow.Cells["Column11"].Value.ToString();
+            string satKira = dataGridView1.CurrentRow.Cells["Column7"].Value.ToString();
+            Console.WriteLine(satKira);
+
+            if (satKira.Equals("satilik"))
+            {
+                foreach (SatilikEv ev in Ev.evler)
+                {
+                    if (ev.EmlakNumarasi == decimal.Parse(deger))
+                    {
+                        Console.WriteLine("Emlak Numarası " + ev.EmlakNumarasi);
+                        Console.WriteLine("Semt " + ev.Semt);
+
+                        EvDuzenleme evDuzenleme = new EvDuzenleme(ev.OdaSayisi, ev.KatNumarasi, ev.il, ev.Semt, ev.Alan,
+                        ev.turuSayi, ev.turu, ev.Aktif, ev.YapimTarihi, ev.Fiyat,ev.EmlakNumarasi);
+
+                        evDuzenleme.Visible = true;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                foreach (KiralikEv ev in Ev.evler)
+                {
+                    if (ev.EmlakNumarasi == decimal.Parse(deger))
+                    {
+                        Console.WriteLine("Emlak Numarası " + ev.EmlakNumarasi);
+                        Console.WriteLine("Semt " + ev.Semt);
+
+                        EvDuzenleme evDuzenleme = new EvDuzenleme(ev.OdaSayisi, ev.KatNumarasi, ev.il, ev.Semt, ev.Alan,
+                        ev.turuSayi, ev.turu, ev.Aktif, ev.YapimTarihi, ev.Kira, ev.Depozito,ev.EmlakNumarasi);
+
+                        evDuzenleme.Visible = true;
+                    }
+                }
+            }
+            
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            string deger = dataGridView1.CurrentRow.Cells["Column11"].Value.ToString();
+            int i = 0;
+            foreach (Ev ev in Ev.evler)
+            {
+                if (ev.EmlakNumarasi == decimal.Parse(deger))
+                {
+                    break;
+                }
+                i++;
+            }
+            Ev.evler.RemoveAt(i);
+            foreach (Ev ev in Ev.evler)
+            {
+                if (ev.turu.Equals("satilik"))
+                {
+                    DosyaIslemleri.DosyaSatilikYazmak("../../satilik.txt", "satilik");
+                }
+                else
+                {
+                    DosyaIslemleri.DosyaKiralikEvYazmak("../../kiralik.txt", "kiralik");
+                }
+            }
+            dataGridView1.Refresh();
+            MessageBox.Show("Silindi");
+        }
+
+        private void btnAktifPasif_Click(object sender, EventArgs e)
+        {
+            string deger = dataGridView1.CurrentRow.Cells["Column11"].Value.ToString();
+            string satKira = dataGridView1.CurrentRow.Cells["Column7"].Value.ToString();
+            int i = 0;
+            foreach (Ev ev in Ev.evler)
+            {
+                if (ev.EmlakNumarasi == decimal.Parse(deger))
+                {
+                    if (ev.Aktif)
+                    {
+                        ev.Aktif = false;
+                        break;
+                    }
+                    else
+                    {
+                        ev.Aktif = true;
+                        break;
+                    }
+                }
+                i++;
+            }
+            Ev.evler.RemoveAt(i);
+            foreach (Ev ev in Ev.evler)
+            {
+                if (ev.turu.Equals("satilik"))
+                {
+                    DosyaIslemleri.DosyaAkifPasif("../../satilik.txt","satilik");
+                }
+                else
+                {
+                    DosyaIslemleri.DosyaAkifPasif("../../kiralik.txt","kiralik");
+                }
+            }
+        }
     }
 }

@@ -28,6 +28,26 @@ namespace EmlakOtomasyonu
             form.txtKira.Visible = true;
         }
 
+        public static void SatilikRadioButton(EvDuzenleme form)
+        {
+            form.txtDepozito.Visible = false;
+            form.label8.Visible = false;
+            form.txtKira.Visible = false;
+            form.label9.Text = "Fiyatı :";
+            form.label9.Visible = true;
+            form.txtFiyat.Visible = true;
+        }
+
+        public static void KiralikRadioButton(EvDuzenleme form)
+        {
+            form.txtFiyat.Visible = false;
+            form.label9.Visible = true;
+            form.label9.Text = "Depozito :";
+            form.txtDepozito.Visible = true;
+            form.label8.Visible = true;
+            form.txtKira.Visible = true;
+        }
+
         public static bool FormButtonKontrol(Form1 form)
         {
             if(form.cb_İl.Text == "")

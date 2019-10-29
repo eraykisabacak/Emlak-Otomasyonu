@@ -86,7 +86,8 @@ namespace EmlakOtomasyonu
             {
                 File.Create(dosya_yolu);
             }
-            FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
+            //DosyaSatilikEvOkuma();
+            FileStream fs = new FileStream(dosya_yolu, FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
                 foreach (SatilikEv ev in SatilikEv.evler)
                 {
@@ -145,6 +146,9 @@ namespace EmlakOtomasyonu
                     evler.Add(new SatilikEv(int.Parse(dosya[1]),int.Parse(dosya[2]),dosya[3],dosya[4],decimal.Parse(dosya[5]),
                               int.Parse(dosya[6]),dosya[7], bool.Parse(dosya[8]), DateTime.Parse(dosya[9]),decimal.Parse(dosya[10]),decimal.Parse(dosya[0])));
 
+                    Ev.evler.Add(new SatilikEv(int.Parse(dosya[1]), int.Parse(dosya[2]), dosya[3], dosya[4], decimal.Parse(dosya[5]),
+                              int.Parse(dosya[6]), dosya[7], bool.Parse(dosya[8]), DateTime.Parse(dosya[9]), decimal.Parse(dosya[10]), decimal.Parse(dosya[0])));
+
                     Console.WriteLine(dosya[0] + " " + int.Parse(dosya[1]) + " " + int.Parse(dosya[2]) + " " + dosya[3] + " " + dosya[4] + " "
                         + " " + decimal.Parse(dosya[5]) + " " + int.Parse(dosya[6]) + " " + dosya[7] + " " + bool.Parse(dosya[8])
                        + " " + DateTime.Parse(dosya[9]) + " " + decimal.Parse(dosya[10]));
@@ -184,8 +188,10 @@ namespace EmlakOtomasyonu
 
                     evler.Add(new KiralikEv(int.Parse(dosya[1]), int.Parse(dosya[2]), dosya[3], dosya[4], decimal.Parse(dosya[5]),
                               int.Parse(dosya[6]), dosya[7], bool.Parse(dosya[8]), DateTime.Parse(dosya[9]), decimal.Parse(dosya[10]),decimal.Parse(dosya[11]),decimal.Parse(dosya[0])));
-                    
-                    
+
+                    Ev.evler.Add(new KiralikEv(int.Parse(dosya[1]), int.Parse(dosya[2]), dosya[3], dosya[4], decimal.Parse(dosya[5]),
+                              int.Parse(dosya[6]), dosya[7], bool.Parse(dosya[8]), DateTime.Parse(dosya[9]), decimal.Parse(dosya[10]), decimal.Parse(dosya[11]), decimal.Parse(dosya[0])));
+
 
                     yazi = sr.ReadLine();
                 }
@@ -193,6 +199,41 @@ namespace EmlakOtomasyonu
                 fs.Close();
             }
             return evler;
+        }
+
+        public static void DosyaAkifPasif(string dosya_yolu,string deger)
+        {
+            if (!File.Exists(dosya_yolu))
+            {
+                File.Create(dosya_yolu);
+            }
+
+            if (deger.Equals("satilik"))
+            {
+                FileStream fs = new FileStream(dosya_yolu, FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                foreach(SatilikEv ev in Ev.evler)
+                {
+                    sw.WriteLine(ev.EmlakNumarasi + "|" + ev.OdaSayisi + "|" + ev.KatNumarasi + "|" + ev.il + "|" + ev.Semt + "|" + ev.Alan + "|"
+                            + ev.turuSayi + "|" + ev.turu + "|" + ev.Aktif + "|" + ev.YapimTarihi + "|" + ev.Fiyat);
+                }
+                sw.Close();
+                fs.Close();
+            }
+            else
+            {
+                FileStream fs = new FileStream(dosya_yolu, FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                foreach (KiralikEv ev in Ev.evler)
+                {
+                    sw.WriteLine(ev.EmlakNumarasi + "|" + ev.OdaSayisi + "|" + ev.KatNumarasi + "|" + ev.il + "|" + ev.Semt + "|" + ev.Alan + "|" + ev.turuSayi + "|" +
+                       ev.turu + "|" + ev.Aktif + "|" + ev.YapimTarihi + "|" + ev.Kira + "|" + ev.Depozito);
+                }
+                sw.Close();
+                fs.Close();
+            }
+            
+
         }
     }
 }

@@ -296,6 +296,7 @@
             this.btnDuzenle.TabIndex = 9;
             this.btnDuzenle.Text = "Düzenle";
             this.btnDuzenle.UseVisualStyleBackColor = true;
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
             // 
             // btnSil
             // 
@@ -306,6 +307,7 @@
             this.btnSil.TabIndex = 10;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnAktifPasif
             // 
@@ -316,6 +318,7 @@
             this.btnAktifPasif.TabIndex = 11;
             this.btnAktifPasif.Text = "Akif-Pasif";
             this.btnAktifPasif.UseVisualStyleBackColor = true;
+            this.btnAktifPasif.Click += new System.EventHandler(this.btnAktifPasif_Click);
             // 
             // SorguEkrani
             // 

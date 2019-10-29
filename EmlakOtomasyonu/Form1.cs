@@ -72,7 +72,7 @@ namespace EmlakOtomasyonu
                         cbSemt.Text, int.Parse(txtAlan.Text), cbEvTur.Items.IndexOf(cbEvTur.SelectedItem),"kiralik",true, DateTime.Parse(yapim.Text), decimal.Parse(txtKira.Text), decimal.Parse(txtDepozito.Text));
                     Ev.evler.Add(kiralikEv);
                     string dosya_yolu = "../../kiralik.txt";
-                    DosyaIslemleri.DosyaKiralikEvYazmak(dosya_yolu, "kiralik");
+                    DosyaIslemleri.DosyaKiralikEvYazmak(dosya_yolu,"kiralik");
                     MessageBox.Show("Kiralık ev eklendi");
                     this.Close();
                 }

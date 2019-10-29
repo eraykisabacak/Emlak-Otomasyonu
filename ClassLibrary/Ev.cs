@@ -127,7 +127,7 @@ namespace ClassLibrary
             }
 
             Yas = DateTime.Now.Year - YapimTarihi.Year;
-            ////////////////////////////////////////////
+
             this.EmlakNumarasi = EmlakNumarasi;
             this.turuSayi = turuSayi;
             this.turu = turu;
