@@ -62,7 +62,7 @@
             this.yapim.MaxDate = new System.DateTime(2019, 10, 29, 0, 0, 0, 0);
             this.yapim.Name = "yapim";
             this.yapim.Size = new System.Drawing.Size(181, 31);
-            this.yapim.TabIndex = 44;
+            this.yapim.TabIndex = 7;
             this.yapim.Value = new System.DateTime(2019, 10, 29, 0, 0, 0, 0);
             // 
             // txtDepozito
@@ -70,7 +70,7 @@
             this.txtDepozito.Location = new System.Drawing.Point(511, 168);
             this.txtDepozito.Name = "txtDepozito";
             this.txtDepozito.Size = new System.Drawing.Size(184, 31);
-            this.txtDepozito.TabIndex = 43;
+            this.txtDepozito.TabIndex = 9;
             this.txtDepozito.Visible = false;
             // 
             // txtKira
@@ -78,7 +78,7 @@
             this.txtKira.Location = new System.Drawing.Point(511, 219);
             this.txtKira.Name = "txtKira";
             this.txtKira.Size = new System.Drawing.Size(184, 31);
-            this.txtKira.TabIndex = 42;
+            this.txtKira.TabIndex = 10;
             this.txtKira.Visible = false;
             // 
             // label8
@@ -96,7 +96,7 @@
             this.txtFiyat.Location = new System.Drawing.Point(511, 168);
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.Size = new System.Drawing.Size(184, 31);
-            this.txtFiyat.TabIndex = 40;
+            this.txtFiyat.TabIndex = 9;
             this.txtFiyat.Visible = false;
             // 
             // label9
@@ -115,7 +115,7 @@
             this.btnGonder.Location = new System.Drawing.Point(230, 422);
             this.btnGonder.Name = "btnGonder";
             this.btnGonder.Size = new System.Drawing.Size(101, 35);
-            this.btnGonder.TabIndex = 38;
+            this.btnGonder.TabIndex = 13;
             this.btnGonder.Text = "Kaydet";
             this.btnGonder.UseVisualStyleBackColor = true;
             this.btnGonder.Click += new System.EventHandler(this.btnGonder_Click);
@@ -124,6 +124,7 @@
             // 
             this.cbEvTur.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.cbEvTur.FormattingEnabled = true;
+            this.cbEvTur.ItemHeight = 25;
             this.cbEvTur.Items.AddRange(new object[] {
             "Daire",
             "Bahçeli",
@@ -133,7 +134,7 @@
             this.cbEvTur.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cbEvTur.Name = "cbEvTur";
             this.cbEvTur.Size = new System.Drawing.Size(181, 33);
-            this.cbEvTur.TabIndex = 37;
+            this.cbEvTur.TabIndex = 8;
             // 
             // label7
             // 
@@ -158,7 +159,7 @@
             this.txtKatNumarasi.Location = new System.Drawing.Point(195, 270);
             this.txtKatNumarasi.Name = "txtKatNumarasi";
             this.txtKatNumarasi.Size = new System.Drawing.Size(181, 31);
-            this.txtKatNumarasi.TabIndex = 34;
+            this.txtKatNumarasi.TabIndex = 6;
             // 
             // label5
             // 
@@ -174,7 +175,7 @@
             this.txtOdaSayisi.Location = new System.Drawing.Point(195, 219);
             this.txtOdaSayisi.Name = "txtOdaSayisi";
             this.txtOdaSayisi.Size = new System.Drawing.Size(181, 31);
-            this.txtOdaSayisi.TabIndex = 32;
+            this.txtOdaSayisi.TabIndex = 5;
             // 
             // label4
             // 
@@ -190,7 +191,7 @@
             this.txtAlan.Location = new System.Drawing.Point(195, 168);
             this.txtAlan.Name = "txtAlan";
             this.txtAlan.Size = new System.Drawing.Size(181, 31);
-            this.txtAlan.TabIndex = 30;
+            this.txtAlan.TabIndex = 4;
             // 
             // label3
             // 
@@ -209,7 +210,7 @@
             this.rbKiralik.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.rbKiralik.Name = "rbKiralik";
             this.rbKiralik.Size = new System.Drawing.Size(96, 29);
-            this.rbKiralik.TabIndex = 28;
+            this.rbKiralik.TabIndex = 3;
             this.rbKiralik.TabStop = true;
             this.rbKiralik.Text = "Kiralık";
             this.rbKiralik.UseVisualStyleBackColor = true;
@@ -223,7 +224,7 @@
             this.rbSatilik.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.rbSatilik.Name = "rbSatilik";
             this.rbSatilik.Size = new System.Drawing.Size(95, 29);
-            this.rbSatilik.TabIndex = 27;
+            this.rbSatilik.TabIndex = 2;
             this.rbSatilik.TabStop = true;
             this.rbSatilik.Text = "Satılık";
             this.rbSatilik.UseVisualStyleBackColor = true;
@@ -238,7 +239,7 @@
             this.cbSemt.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cbSemt.Name = "cbSemt";
             this.cbSemt.Size = new System.Drawing.Size(181, 33);
-            this.cbSemt.TabIndex = 26;
+            this.cbSemt.TabIndex = 1;
             // 
             // label2
             // 
@@ -341,7 +342,7 @@
             this.cb_İl.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.cb_İl.Name = "cb_İl";
             this.cb_İl.Size = new System.Drawing.Size(181, 33);
-            this.cb_İl.TabIndex = 24;
+            this.cb_İl.TabIndex = 0;
             this.cb_İl.SelectedValueChanged += new System.EventHandler(this.cb_İl_SelectedValueChanged);
             // 
             // label1
@@ -363,7 +364,7 @@
             this.rbPasif.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.rbPasif.Name = "rbPasif";
             this.rbPasif.Size = new System.Drawing.Size(83, 29);
-            this.rbPasif.TabIndex = 46;
+            this.rbPasif.TabIndex = 12;
             this.rbPasif.TabStop = true;
             this.rbPasif.Text = "Pasif";
             this.rbPasif.UseVisualStyleBackColor = true;
@@ -376,7 +377,7 @@
             this.rbAktif.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.rbAktif.Name = "rbAktif";
             this.rbAktif.Size = new System.Drawing.Size(77, 29);
-            this.rbAktif.TabIndex = 45;
+            this.rbAktif.TabIndex = 11;
             this.rbAktif.TabStop = true;
             this.rbAktif.Text = "Aktif";
             this.rbAktif.UseVisualStyleBackColor = true;

@@ -62,6 +62,7 @@ namespace EmlakOtomasyonu
                     cbSemt.Text, int.Parse(txtAlan.Text),cbEvTur.Items.IndexOf(cbEvTur.SelectedItem),"satilik",true, DateTime.Parse(yapim.Text), int.Parse(txtFiyat.Text));
                     Ev.evler.Add(satilikEv);
                     string dosya_yolu = "../../satilik.txt";
+                    DosyaIslemleri.DosyaSatilikEvOkuma();
                     DosyaIslemleri.DosyaSatilikYazmak(dosya_yolu,"satilik");
                     MessageBox.Show("Satılık ev eklendi");
                     this.Close();

@@ -232,8 +232,27 @@ namespace EmlakOtomasyonu
                 sw.Close();
                 fs.Close();
             }
-            
+        }
 
+        public static int RoomCastSayisi(ComboBox cb)
+        {
+            FileStream fs = new FileStream("../../room_cost.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            string yazi = sr.ReadLine();
+            int a = 0;
+            while (yazi != null)
+            {
+                string[] dosya = yazi.Split('|');
+                if (cb.Text == dosya[0])
+                {
+                    break;
+                }
+                yazi = sr.ReadLine();
+                a++;
+            }
+            sr.Close();
+            fs.Close();
+            return a;
         }
     }
 }

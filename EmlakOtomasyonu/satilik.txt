@@ -1,2 +1,3 @@
-372019001|10|10|Kastamonu|Merkez|10|0|satilik|True|29.10.2019 00:00:00|10
-372019001|10|10|Kastamonu|Merkez|10|0|satilik|False|29.10.2019 00:00:00|10
+92010002|3|5|Aydın|Atburgazı|110|2|satilik|True|3.02.2010 00:00:00|110000
+602019002|3|12|Tokat|Çıkrık|50|1|satilik|True|29.10.2019 00:00:00|100000
+92010002|3|5|Aydın|Atburgazı|110|2|satilik|True|3.02.2010 00:00:00|110000

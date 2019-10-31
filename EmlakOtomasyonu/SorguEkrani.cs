@@ -44,6 +44,7 @@ namespace EmlakOtomasyonu
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
+            Ev.evler.Clear();
             string il = "";
             string semt = "";
             if (cb_İl.Text != "")
@@ -69,7 +70,7 @@ namespace EmlakOtomasyonu
                 List<SatilikEv> evler = DosyaIslemleri.DosyaSatilikEvOkuma();
                 foreach (SatilikEv ev in evler)
                 {
-                    if (semt.Equals(ev.Semt) && il.Equals(ev.il))
+                    if (semt.Equals(ev.Semt) && il.Equals(ev.il) && ev.Aktif == true)
                     {
                         dataGridView1.Rows.Add(ev.EmlakNumarasi,ev.OdaSayisi, ev.KatNumarasi, ev.il, ev.Semt, ev.Alan, ev.turuSayi, ev.turu, ev.Aktif, ev.YapimTarihi, ev.Fiyat);
                     }
@@ -86,7 +87,7 @@ namespace EmlakOtomasyonu
                 }
                 foreach (KiralikEv ev in evler)
                 {
-                    if (semt.Equals(ev.Semt) && il.Equals(ev.il))
+                    if (semt.Equals(ev.Semt) && il.Equals(ev.il) && ev.Aktif == true)
                     {
                         dataGridView1.Rows.Add(ev.EmlakNumarasi,ev.OdaSayisi, ev.KatNumarasi, ev.il, ev.Semt, ev.Alan, ev.turuSayi, ev.turu, ev.Aktif, ev.YapimTarihi, ev.Kira, ev.Depozito);
                     }
@@ -178,6 +179,15 @@ namespace EmlakOtomasyonu
 
         private void btnAktifPasif_Click(object sender, EventArgs e)
         {
+            Ev.evler.Clear();
+            if (rbKiralik.Checked)
+            {
+                DosyaIslemleri.DosyaKiralikEvOkuma();
+            }
+            else
+            {
+                DosyaIslemleri.DosyaSatilikEvOkuma();
+            }
             string deger = dataGridView1.CurrentRow.Cells["Column11"].Value.ToString();
             string satKira = dataGridView1.CurrentRow.Cells["Column7"].Value.ToString();
             int i = 0;
@@ -198,7 +208,7 @@ namespace EmlakOtomasyonu
                 }
                 i++;
             }
-            Ev.evler.RemoveAt(i);
+            //Ev.evler.RemoveAt(i);
             foreach (Ev ev in Ev.evler)
             {
                 if (ev.turu.Equals("satilik"))
@@ -210,6 +220,7 @@ namespace EmlakOtomasyonu
                     DosyaIslemleri.DosyaAkifPasif("../../kiralik.txt","kiralik");
                 }
             }
+            MessageBox.Show("İşleminiz Gerçekleştirildi");
         }
     }
 }
