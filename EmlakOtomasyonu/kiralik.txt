@@ -1,2 +1,3 @@
-132011003|3|3|Bitlis|Bitlis|110|0|kiralik|True|3.03.2011 00:00:00|1000|500
-412010005|4|4|Kocaeli|Gebze|150|2|kiralik|False|13.02.2010 00:00:00|1500|800
+﻿342013002|5|2|Giresun|Dereli|100|1|kiralik|True|7.05.2013 00:00:00|850|400
+492019004|3|4|Kırklareli|Babaeski|80|0|kiralik|True|29.10.2019 00:00:00|800|200
+462010005|3|3|Kastamonu|Hanönü|100|0|kiralik|True|28.01.2010 00:00:00|1000|400

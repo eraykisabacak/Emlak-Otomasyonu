@@ -86,7 +86,6 @@ namespace EmlakOtomasyonu
             {
                 File.Create(dosya_yolu);
             }
-            //DosyaSatilikEvOkuma();
             FileStream fs = new FileStream(dosya_yolu, FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
                 foreach (SatilikEv ev in SatilikEv.evler)
@@ -112,11 +111,8 @@ namespace EmlakOtomasyonu
             {
                 if (ev.turu.Equals("kiralik"))
                 {
-                    //sw.WriteLine(ev.EmlakNumarasi + "|" + ev.OdaSayisi + "|" + ev.KatNumarasi + "|" + ev.Semt + "|" +
-                      //  ev.Alan + "|" + ev.turuSayi + "|" + ev.turu + "|" + ev.YapimTarihi);
                     sw.WriteLine(ev.EmlakNumarasi + "|" + ev.OdaSayisi + "|" + ev.KatNumarasi + "|" + ev.il + "|" + ev.Semt + "|" + ev.Alan + "|" + ev.turuSayi + "|" +
                         ev.turu + "|" + ev.Aktif + "|" + ev.YapimTarihi + "|" + ev.Kira + "|"+ ev.Depozito);
-                    // Odasayisi katnumarasi il semt alan turusayisi turu aktif yapım tarihi kira depozito
                 }
             }
 
@@ -135,7 +131,6 @@ namespace EmlakOtomasyonu
             }
             else
             {               
-                MessageBox.Show("Satilik Dosya Bulundu");
                 FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
                 StreamReader sr = new StreamReader(fs);
                 string yazi = sr.ReadLine();
@@ -172,7 +167,6 @@ namespace EmlakOtomasyonu
             }
             else
             {
-                MessageBox.Show("Satilik Dosya Bulundu");
                 FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
                 StreamReader sr = new StreamReader(fs);
                 string yazi = sr.ReadLine();
@@ -182,10 +176,7 @@ namespace EmlakOtomasyonu
 
                     Console.WriteLine(dosya[1] + " " + dosya[2] + " " + dosya[3] + " " + dosya[4] + " " + dosya[5] + " "+ dosya[6] + " "+
                                         dosya[7] + " " + dosya[8] + " " + dosya[9] + " " + dosya[10]);
-                    //Console.WriteLine(" " + int.Parse(dosya[1]) + " " + int.Parse(dosya[2]) + " " + dosya[3] + " " + dosya[4] + " "
-                       // + " " + decimal.Parse(dosya[5]) + " " + int.Parse(dosya[6]) + " " + dosya[7] + " " + bool.Parse(dosya[8])
-                       //+ " " + DateTime.Parse(dosya[9]) + " " + decimal.Parse(dosya[10]) + " " + decimal.Parse(dosya[11]));
-
+                    
                     evler.Add(new KiralikEv(int.Parse(dosya[1]), int.Parse(dosya[2]), dosya[3], dosya[4], decimal.Parse(dosya[5]),
                               int.Parse(dosya[6]), dosya[7], bool.Parse(dosya[8]), DateTime.Parse(dosya[9]), decimal.Parse(dosya[10]),decimal.Parse(dosya[11]),decimal.Parse(dosya[0])));
 

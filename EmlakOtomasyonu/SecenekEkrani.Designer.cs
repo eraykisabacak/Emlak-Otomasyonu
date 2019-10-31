@@ -62,6 +62,7 @@
             this.Controls.Add(this.btnSorgulama);
             this.Controls.Add(this.btnEvEkleme);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "SecenekEkrani";
             this.Text = "SecenekEkrani";

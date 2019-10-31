@@ -1,3 +1,2 @@
-92010002|3|5|Aydın|Atburgazı|110|2|satilik|True|3.02.2010 00:00:00|110000
-602019002|3|12|Tokat|Çıkrık|50|1|satilik|True|29.10.2019 00:00:00|100000
-92010002|3|5|Aydın|Atburgazı|110|2|satilik|True|3.02.2010 00:00:00|110000
+652010003|2|2|Rize|Gündoğdu(Hamidiye)|70|1|satilik|True|26.01.2010 00:00:00|400000
+462018001|2|1|Kastamonu|Cebrail|100|1|satilik|True|4.10.2018 00:00:00|100000

@@ -15,7 +15,7 @@ namespace EmlakOtomasyonu
     {
         public Login()
         {
-            InitializeComponent();            
+            InitializeComponent(); 
         }
         
         private void btnGiris_Click(object sender, EventArgs e)

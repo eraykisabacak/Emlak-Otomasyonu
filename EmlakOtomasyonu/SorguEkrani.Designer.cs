@@ -337,6 +337,7 @@
             this.Controls.Add(this.rbKiralik);
             this.Controls.Add(this.rbSatilik);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "SorguEkrani";
             this.Text = "Sorgu Ekrani";

@@ -104,11 +104,7 @@ namespace EmlakOtomasyonu
         private void btnDuzenle_Click(object sender, EventArgs e)
         {
             // Düzenle tuşu basıldığında eğer datagridviewdan bir şey seçili değilse hata veriyor
-            /*if(dataGridView1.Click )
-            {
-                MessageBox.Show("Boş");
-                return;
-            }*/
+            
             string deger = dataGridView1.CurrentRow.Cells["Column11"].Value.ToString();
             string satKira = dataGridView1.CurrentRow.Cells["Column7"].Value.ToString();
             Console.WriteLine(satKira);
@@ -208,7 +204,6 @@ namespace EmlakOtomasyonu
                 }
                 i++;
             }
-            //Ev.evler.RemoveAt(i);
             foreach (Ev ev in Ev.evler)
             {
                 if (ev.turu.Equals("satilik"))

@@ -77,6 +77,7 @@ namespace EmlakOtomasyonu
                     MessageBox.Show("Kiralık ev eklendi");
                     this.Close();
                 }
+                Ev.id++;
             }
             else
             {
@@ -89,6 +90,19 @@ namespace EmlakOtomasyonu
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtOdaSayisi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void cbEvTur_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(txtOdaSayisi.Text != "" && cbEvTur.Text != "")
+            {
+                tahmin.Text = "Önerilen Fiyat : " + (Ev.FiyatHesapla(int.Parse(txtOdaSayisi.Text), cbEvTur.Text).ToString());
+            }
         }
     }
 }

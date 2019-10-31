@@ -50,6 +50,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtDepozito = new System.Windows.Forms.TextBox();
             this.yapim = new System.Windows.Forms.DateTimePicker();
+            this.tahmin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -221,6 +222,7 @@
             this.txtAlan.Name = "txtAlan";
             this.txtAlan.Size = new System.Drawing.Size(181, 31);
             this.txtAlan.TabIndex = 4;
+            this.txtAlan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // txtOdaSayisi
             // 
@@ -228,6 +230,8 @@
             this.txtOdaSayisi.Name = "txtOdaSayisi";
             this.txtOdaSayisi.Size = new System.Drawing.Size(181, 31);
             this.txtOdaSayisi.TabIndex = 5;
+            this.txtOdaSayisi.TextChanged += new System.EventHandler(this.cbEvTur_SelectedValueChanged);
+            this.txtOdaSayisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label4
             // 
@@ -244,6 +248,7 @@
             this.txtKatNumarasi.Name = "txtKatNumarasi";
             this.txtKatNumarasi.Size = new System.Drawing.Size(181, 31);
             this.txtKatNumarasi.TabIndex = 6;
+            this.txtKatNumarasi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label5
             // 
@@ -286,6 +291,7 @@
             this.cbEvTur.Name = "cbEvTur";
             this.cbEvTur.Size = new System.Drawing.Size(181, 33);
             this.cbEvTur.TabIndex = 8;
+            this.cbEvTur.SelectedValueChanged += new System.EventHandler(this.cbEvTur_SelectedValueChanged);
             // 
             // btnGonder
             // 
@@ -305,6 +311,7 @@
             this.txtKira.Size = new System.Drawing.Size(184, 31);
             this.txtKira.TabIndex = 10;
             this.txtKira.Visible = false;
+            this.txtKira.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label8
             // 
@@ -341,6 +348,7 @@
             this.txtDepozito.Size = new System.Drawing.Size(184, 31);
             this.txtDepozito.TabIndex = 9;
             this.txtDepozito.Visible = false;
+            this.txtDepozito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // yapim
             // 
@@ -351,11 +359,20 @@
             this.yapim.TabIndex = 7;
             this.yapim.Value = new System.DateTime(2019, 10, 29, 0, 0, 0, 0);
             // 
+            // tahmin
+            // 
+            this.tahmin.AutoSize = true;
+            this.tahmin.Location = new System.Drawing.Point(435, 63);
+            this.tahmin.Name = "tahmin";
+            this.tahmin.Size = new System.Drawing.Size(0, 25);
+            this.tahmin.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 477);
+            this.Controls.Add(this.tahmin);
             this.Controls.Add(this.yapim);
             this.Controls.Add(this.txtDepozito);
             this.Controls.Add(this.txtKira);
@@ -379,8 +396,10 @@
             this.Controls.Add(this.cb_İl);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Yeni Kayıt Ekleme";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -412,6 +431,7 @@
         public System.Windows.Forms.TextBox txtKatNumarasi;
         public System.Windows.Forms.ComboBox cbEvTur;
         private System.Windows.Forms.DateTimePicker yapim;
+        private System.Windows.Forms.Label tahmin;
     }
 }
 

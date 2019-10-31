@@ -13,14 +13,17 @@ namespace ClassLibrary
         public static int sehir = 0;
         public static int id = 1;
 
-        public int OdaSayisi {get;set;}
+        public int OdaSayisi
+        {
+            get;set;
+        }
         public int KatNumarasi { get; set; }
         public string Semt { get; set; }
         public DateTime YapimTarihi { get; set; }
         public bool Aktif { get; set; }
         public decimal EmlakNumarasi
         {   // Şehir Plaka Kodu-YapimTarihYili-ID  -- 42 2018 001  --- Her ev için farklı bir numara
-            get;set; 
+            get;set;
         }
         public decimal Alan { get; set; }
         public int Yas { get; set; }
@@ -36,7 +39,7 @@ namespace ClassLibrary
         DateTime dtNow = DateTime.Now;
 
         public Ev(  
-                    int OdaSayisi = 0, 
+                    int OdaSayisi = 1, 
                     int KatNumarasi = 0,
                     string il = "Konya",
                     string Semt = "Selçuk Üniversitesi", 
@@ -85,7 +88,7 @@ namespace ClassLibrary
         }
 
         public Ev(
-                    int OdaSayisi = 0,
+                    int OdaSayisi = 1,
                     int KatNumarasi = 0,
                     string il = "Konya",
                     string Semt = "Selçuk Üniversitesi",
@@ -94,17 +97,17 @@ namespace ClassLibrary
                     string turu = "satilik",
                     bool Aktif = true,
                     DateTime dtNow = new DateTime(),
-                    decimal EmlakNumarasi = 00000000000)
+                    decimal EmlakNumarasi = 111111111)
         {
             this.il = il;
 
-            if (OdaSayisi >= 0)
+            if (OdaSayisi > 0)
             {
                 this.OdaSayisi = OdaSayisi;
             }
             else
             {
-                this.OdaSayisi = 0;
+                this.OdaSayisi = 1;
             }
             this.KatNumarasi = KatNumarasi;
             this.Semt = Semt;
@@ -158,6 +161,31 @@ namespace ClassLibrary
                 {
                     katSayi = int.Parse(dizi[1]);
                 }
+            }
+            sw.Close();
+            fs.Close();
+            return katSayi * OdaSayisi;
+        }
+
+        public static int FiyatHesapla(int OdaSayisi,string turu)
+        {
+            string dosya_yolu = "../../room_cost.txt";
+            int katSayi = 1;
+            if (!File.Exists(dosya_yolu))
+            {
+                katSayi = 200;
+                return katSayi * OdaSayisi;
+            }
+            FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
+            StreamReader sw = new StreamReader(fs, Encoding.GetEncoding("windows-1254"));
+            string yazi = sw.ReadLine();
+            while(yazi != null){
+                string[] dizi = yazi.Split('|');
+                if (dizi[0].Equals(turu))
+                {
+                    katSayi = int.Parse(dizi[1]);
+                }
+                yazi = sw.ReadLine();
             }
             sw.Close();
             fs.Close();

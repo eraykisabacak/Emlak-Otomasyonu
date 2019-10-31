@@ -72,6 +72,7 @@
             this.txtDepozito.Size = new System.Drawing.Size(184, 31);
             this.txtDepozito.TabIndex = 9;
             this.txtDepozito.Visible = false;
+            this.txtDepozito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // txtKira
             // 
@@ -80,6 +81,7 @@
             this.txtKira.Size = new System.Drawing.Size(184, 31);
             this.txtKira.TabIndex = 10;
             this.txtKira.Visible = false;
+            this.txtKira.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label8
             // 
@@ -160,6 +162,7 @@
             this.txtKatNumarasi.Name = "txtKatNumarasi";
             this.txtKatNumarasi.Size = new System.Drawing.Size(181, 31);
             this.txtKatNumarasi.TabIndex = 6;
+            this.txtKatNumarasi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label5
             // 
@@ -176,6 +179,7 @@
             this.txtOdaSayisi.Name = "txtOdaSayisi";
             this.txtOdaSayisi.Size = new System.Drawing.Size(181, 31);
             this.txtOdaSayisi.TabIndex = 5;
+            this.txtOdaSayisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label4
             // 
@@ -192,6 +196,7 @@
             this.txtAlan.Name = "txtAlan";
             this.txtAlan.Size = new System.Drawing.Size(181, 31);
             this.txtAlan.TabIndex = 4;
+            this.txtAlan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdaSayisi_KeyPress);
             // 
             // label3
             // 
@@ -421,6 +426,7 @@
             this.Controls.Add(this.cb_İl);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "EvDuzenleme";
             this.Text = "EvDuzenleme";

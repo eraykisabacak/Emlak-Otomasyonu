@@ -133,23 +133,6 @@ namespace EmlakOtomasyonu
             }
             else
             {
-                /*FileStream fs = new FileStream("../../room_cost.txt", FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
-                string yazi = sr.ReadLine();
-                int a = 0;
-                while (yazi != null)
-                {
-                    string[] dosya = yazi.Split('|');
-                    if (cbEvTur.Text == dosya[0])
-                    {
-                        break;
-                    }
-                    yazi = sr.ReadLine();
-                    a++;
-                }
-                sr.Close();
-                fs.Close();*/
-
                 int a = DosyaIslemleri.RoomCastSayisi(cbEvTur);
 
                 KiralikEv kiralikEv = new KiralikEv(int.Parse(txtOdaSayisi.Text), int.Parse(txtKatNumarasi.Text), cb_İl.Text,
@@ -160,6 +143,11 @@ namespace EmlakOtomasyonu
 
                 DosyaIslemleri.DosyaSatilikYazmak(dosya_yolu, "satilik");
             }
+        }
+
+        private void txtOdaSayisi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
