@@ -10,6 +10,21 @@ Giriş Bilgileri => Kullanıcı Adı: eray Şifre: 123
 <p>Kurumsal bir emlak ofisi için istenen otomasyonun çekirdeğini oluşturacak bir yazılım geliştirmeniz istenmektedir. Bu nedenle nesneye yönelik programlama ilkelerine bağlı kalarak gerekli sınıfları bir sınıf kütüphanesi içinde kodlamanız istenmektedir. Oluşturacağınız Solution içinde iki ayrı proje açmalısınız. Birincisi ClassLibrary projesi, ikincisi otomasyonun arayüzünü oluşturacak Windows Forms Application projesi olmalıdır. Tasarlayacağınız sınıfları; windows uygulamasına kütüphane projesini import ederek veya derleme sonucu elde edeceğiniz dll dosyasını import ederek kullanmalısınız. Tek bir proje içinde geliştirilen uygulama geçersiz sayılacaktır. </p>
 <!-- /wp:paragraph -->
 
+## Giriş
+![](https://github.com/eraykisabacak/Emlak-Otomasyonu/blob/master/Emlak%20Otomsyonu%201.png)
+
+## Seçenek Ekranı
+![](https://github.com/eraykisabacak/Emlak-Otomasyonu/blob/master/Emlak%20Otomsyonu%202.png)
+
+## Kayıt Ekleme Ekranı
+![](https://github.com/eraykisabacak/Emlak-Otomasyonu/blob/master/Emlak%20Otomsyonu%203.png)
+
+## Kayıtların Listelenmesi
+![](https://github.com/eraykisabacak/Emlak-Otomasyonu/blob/master/Emlak%20Otomsyonu%204.png)
+
+## Kayıtlar
+![](https://github.com/eraykisabacak/Emlak-Otomasyonu/blob/master/Emlak%20Otomsyonu%205.png)
+
 <!-- wp:heading {"level":3} -->
 <h3>CLASS LIBRARY PROJESİ </h3>
 <!-- /wp:heading -->
