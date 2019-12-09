@@ -3,6 +3,7 @@ C# - Emlak Otomasyonu - Real Estate Automation
 
 <!-- wp:heading -->
 <h2>Bu yazımda sadece emlak otomasyonunda istenilenler vardır. Bazı yanlışlarım veya kod tekrarlarım olabilir.</h2>
+Giriş Bilgileri => Kullanıcı Adı: eray Şifre: 123
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
